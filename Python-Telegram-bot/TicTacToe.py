@@ -52,22 +52,15 @@ def hand(bot,update,job_queue):
                     break
             if flag:
                 return 2
-            if(board[2]!="⚪️" and board[2]==board[4] and board[4]==board[6]) or (board[0]!="⚪️" and board[0]==board[4] and board[4]==board[8]):
+            if ((board[2]!="⚪️" and board[2]==board[4] and board[4]==board[6])
+            or (board[0]!="⚪️" and board[0]==board[4] and board[4]==board[8])
+            or (board[0]!="⚪️" and board[0]==board[1] and board[1]==board[2])
+            or (board[0]!="⚪️" and board[0]==board[3] and board[3]==board[6])
+            or (board[1]!="⚪️" and board[1]==board[4] and board[4]==board[7])
+            or (board[3]!="⚪️" and board[3]==board[4] and board[4]==board[5])
+            or (board[2]!="⚪️" and board[2]==board[5] and board[5]==board[8])
+            or (board[6]!="⚪️" and board[6]==board[7] and board[7]==board[8])):
                 return 1
-            for j in range(3): # 0 1 2
-                if board[j]!="⚪️":
-                    flag=1
-                    for i in range(1,3):
-                        i=j+3*i
-                        if(board[i] != board[i-3]):
-                            return 0
-                j=3*j
-                if board[j]!="⚪️":
-                    flag=1
-                    for i in range(1,3):
-                        i+=j
-                        if(board[i] != board[i-1]):
-                            return 0
             return 0
 
 
